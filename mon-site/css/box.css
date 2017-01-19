@@ -1,0 +1,77 @@
+html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    background-color: rgb(29, 31, 32);
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: "mapolice";
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#box1 {
+    background-color: #ff8d71;
+    margin: 1px;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: floralwhite;
+    box-shadow: 0px 0px 10px rgba(200, 200, 200, 0.3);
+}
+
+#box2 {
+    background-color: #ff5d86;
+    margin: 1px;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: floralwhite;
+    box-shadow: 0px 0px 10px rgba(200, 200, 200, 0.3);
+}
+
+#box3 {
+    background-color: #ff355d;
+    margin: 1px;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: floralwhite;
+    box-shadow: 0px 0px 10px rgba(200, 200, 200, 0.3);
+}
+
+.box {
+    margin: 1px;
+    width: 300px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128);
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(200, 200, 200, 0.3);
+}
+
+@font-face {
+    font-family: 'mapolice';
+    src: url('../fonts/roundy_rainbows-webfont.woff2') format('woff2'), url('../fonts/roundy_rainbows-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: floralwhite;
+}

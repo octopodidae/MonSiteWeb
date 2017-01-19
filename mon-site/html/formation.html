@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/box.css">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+
+</head>
+
+<body>
+
+    <div class="box">
+
+        <div id="box1">Formation initiale</div>
+        <!--<a href="#" target="_blank">
+            <div id="box1">Formation initiale</div>
+        </a>-->
+    </div>
+
+    <div class="box">
+        <a href=".\cnam.html" target="_blank">
+            <div id="box2" onclick="location.href='./cnam.html'">Le CNAM</div>
+        </a>
+    </div>
+    <div class="box">
+        <a href="..\pdf\Programme CQP DNT.pdf" target="_blank" target="_blank">
+            <div id="box3">CQP DEVELOPPEUR NOUVELLES TECHNOLOGIE</div>
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        $('#box1').mouseenter(function () {
+            $(this).animate({
+                height: '+=150px'
+            });
+            $(this).css("background-color", "rgb(20, 20, 20)").empty().html('<p><b>Maîtrise de Géographie</b>, </br>option Aménagement du Territoire </br>(2002)</br></br></br><b>Diplôme Universitaire </br>Gestion des Services Urbains</b>, </br>option Gestion de L\'eau</br>(2003)</p>').css("color", "#ffc266").css("font-size", "0.7em").css("font-family", "sans-serif");
+        });
+        $('#box1').mouseleave(function () {
+            $(this).animate({
+                height: '-=150px'
+            });
+            $(this).css("background-color", "#ff8d71").empty().text("Formation initiale").css("color", "floralwhite").css("font-size", "1em").css("font-family", "mapolice");
+        });
+        $('#box2').mouseenter(function () {
+            $(this).animate({
+                height: '+=20px'
+            });
+            $(this).css("background-color", "rgb(20, 20, 20)").empty().html("<p>Modules à la carte en </br>Formation Ouverte à Distance</br>(De 2011 à 2016)<p>").css("color", "#ffc266").css("font-size", "0.7em").css("font-family", "sans-serif");
+        });
+        $('#box2').mouseleave(function () {
+            $(this).animate({
+                height: '-=20px'
+            });
+            $(this).css("background-color", "#ff5d86").empty().text("Le CNAM").css("color", "floralwhite").css("font-size", "1em").css("font-family", "mapolice");
+
+        });
+        $('#box3').mouseenter(function () {
+            $(this).animate({
+                height: '+=150px'
+            });
+            $(this).css("background-color", "rgb(20, 20, 20)").empty().html("<p><b>Certificat de Qualification Professionnelle Développeur Nouvelles Technologies</b></br>en période de professionnalisation</br></br></br><b>ASTON L'école informatique</b></br>(De 2016 à 2017)</p>").css("color", "#ffc266").css("font-size", "0.7em").css("font-family", "sans-serif");
+        });
+        $('#box3').mouseleave(function () {
+            $(this).animate({
+                height: '-=150px'
+            });
+            $(this).css("background-color", "#ff355d").empty().text("CQP DEVELOPPEUR NOUVELLES TECHNOLOGIES").css("color", "floralwhite").css("font-size", "1em").css("font-family", "mapolice");
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/box-projet.css">
+</head>
+
+<body>
+
+    <div class="box">
+        <a href="..\projets\wonder\html\wonder.html" target="_blank">
+            <div id="box1">WONDER</div>
+        </a>
+    </div>
+
+    <div class="box">
+        <a href="..\projets\mario\mario.html" target="_blank">
+            <div id="box2">SUPER MARIO</div>
+        </a>
+    </div>
+    <div class="box">
+        <a href=".\robot.html">
+            <div id="box3">ROBOT</div>
+        </a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        $("#box1").mouseover(function () {
+            $(this).css("background-color", "#1d1f20").empty().html("<p>HTML</br>CSS</br><b>Bootstrap</b></br></p>").css("color", "#ffc266").css("font-size", "0.7em").css("font-family", "sans-serif");
+        });
+        $("#box2").mouseover(function () {
+            $(this).css("background-color", "#1d1f20").empty().html("<p>HTML</br>CSS</br><b>jQuery</b></p>").css("color", "#ffc266").css("font-size", "0.7em").css("font-family", "sans-serif");
+        });
+        $("#box3").mouseover(function () {
+            $(this).css("background-color", "#1d1f20").empty().html("<p><b>Java POO</b></p>").css("color", "#ffc266").css("font-size", "0.7em").css("font-family", "sans-serif");
+        });
+        $("#box1").mouseleave(function () {
+            $(this).css("background-color", "#ff8d71").empty().text("WONDER").css("color", "floralwhite").css("font-size", "1em").css("font-family", "mapolice");
+        });
+        $("#box2").mouseleave(function () {
+            $(this).css("background-color", "#ff5d86").empty().text("SUPER MARIO").css("color", "floralwhite").css("font-size", "1em").css("font-family", "mapolice");
+        });
+        $("#box3").mouseleave(function () {
+            $(this).css("background-color", "#ff355d").empty().text("ROBOT").css("color", "floralwhite").css("font-size", "1em").css("font-family", "mapolice");
+        });
+    </script>
+
+</body>
+
+</html>

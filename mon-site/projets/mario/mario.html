@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Super Mario!</title>
+    <!-- <link rel='stylesheet' type='text/css' href='stylesheet.css'/> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        
+        #game {
+            width: 5600px;
+            height: 576px;
+            border: 2px black solid;
+            position: relative;
+            margin-top: 2%;
+        }
+        
+        #landscape {
+            height: 576px;
+            width: 5600px;
+            position: absolute;
+            z-index: 2;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        
+        #mario {
+            position: absolute;
+            bottom: 70px;
+            left: 0px;
+            height: 70px;
+            width: 70px;
+            z-index: 3;
+        }
+        
+        #bowser {
+            position: absolute;
+            bottom: 50px;
+            left: 1000px;
+            height: 120px;
+            width: 120px;
+            z-index: 3;
+        }
+        
+        #title {
+            text-align: center;
+            font-size: 3em;
+            margin-top: 20px;
+            color: rgba(217, 54, 0, 0.8);
+            text-shadow: 1px 1px 1px #bfa8a8;
+            font-family: 'gameplayregular', 'Arial';
+        }
+        
+        @font-face {
+            font-family: 'gameplayregular';
+            src: url('./fonts/gameplay-webfont.woff2') format('woff2'), url('./fonts/gameplay-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        #game_over {
+            font-size: 4em;
+            color: rgb(217, 54, 0);
+            text-shadow: 1px 1px 1px #bfa8a8;
+            font-family: 'gameplayregular', 'Arial';
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        
+        #youwin {
+            font-size: 4em;
+            color: rgb(5, 235, 13);
+            text-shadow: 1px 1px 1px #bfa8a8;
+            font-family: 'gameplayregular', 'Arial';
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+        
+        .btn-gameover,
+        .btn-win {
+            display: none;
+            margin: 0;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--<embed src="./sons/mario.mp3" hidden="true" autostart="true" width="200" height="50" loop="infinite" />-->
+    <h1 id="title">Super Mario</h1>
+
+    <div id="game">
+        <img src=".\img\fond.jpg" id="landscape" />
+        <img src=".\img\mario.gif" id="mario" />
+        <img src=".\img\bowser.gif" id="bowser" />
+
+    </div>
+
+    <div>
+        <h1 id="game_over">Game Over !!</h1>
+        <button type="button" class="btn btn-success btn-lg btn-gameover" onclick="location.href='mario.html'">Do you want to replay ?</button>
+    </div>
+    <div>
+        <h1 id="youwin">You Win !!</h1>
+        <button type="button" class="btn btn-primary btn-lg btn-win" onclick="location.href='mario.html'">Do you want to replay ?</button>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            var width_screen = $(window).width();
+            width_screen = width_screen - 40;
+            console.log(width_screen);
+            if (width_screen < 1200) {
+                $('#bowser').css('left', '600px');
+            }
+            var xWin = 0;
+            var jump_sound = new Audio('./sons/saut.wav');
+
+            //setInterval(animateBowser, 3000);
+            animateBowser();
+            setInterval(getX, 2);
+
+            $(document).keydown(function (e) { // on écoute le clavier de l'utilisateur
+
+                if (xM >= width_screen) {
+                    $('#landscape').animate({
+                        left: "-=" + width_screen + "px"
+                    }, 100);
+                    $('#mario').css('left', '0');
+                    xWin += 1;
+                    //console.log(xWin);
+                    if (xWin == 3) {
+                        $("#title").fadeOut(12000);
+                        $("#game").fadeOut(12000);
+                        $('.btn-win').fadeIn(10000);
+                        $('#youwin').fadeIn(10000);
+                        $('#youwin').fadeOut(1500);
+                        $('#youwin').fadeIn(1500);
+                        $('#youwin').fadeOut(1500);
+                        $('#youwin').fadeIn(1500);
+                    }
+                }
+                switch (e.keyCode) {
+                case 39: // flèche droite
+                    // on se déplace à droite
+                    $('#mario').animate({
+                        left: "+=20px"
+                    }, 'fast');
+                    //$("#mario").delay(100);
+                    e.stopPropagation();
+                    break;
+
+                case 38: // // flèche haut
+                    // on saute
+                    $("#mario").animate({
+                        left: '+=100',
+                        bottom: '+=200'
+                    }, 500);
+                    $("#mario").animate({
+                        left: '+=100',
+                        bottom: '-=200'
+                    }, 500);
+                    $("#mario").delay(100);
+                    $("#mario").animate({
+                        bottom: "70px"
+                    });
+                    jump_sound.play();
+                    e.stopPropagation();
+                    break;
+                }
+            });
+
+            function animateBowser() {
+
+                $('#bowser').animate({
+                        left: '+=300px'
+                    }, {
+                        duration: 2000,
+                        easing: "linear"
+                    })
+                    .animate({
+                        left: '-=300'
+                    }, {
+                        duration: 2000,
+                        easing: "linear",
+                        complete: animateBowser
+                    })
+            }
+
+            function getX() {
+                xB = parseInt($('#bowser').css('left'));
+                //console.log("xB : " + xB);
+                xM = parseInt($('#mario').css('left'));
+                xH = parseInt($('#mario').css('bottom'));
+                //console.log("xM : " + xM);
+                if (xM == xB && xH < 150) {
+                    console.log("Game Over !!!");
+                    $("#title").fadeOut(1500);
+                    $("#game").fadeOut(1500);
+                    $('#game_over').fadeIn(2500);
+                    $('.btn-gameover').fadeIn(2500);
+                    $('#game_over').fadeOut(1500);
+                    $('#game_over').fadeIn(1500);
+                }
+            }
+
+            /*function makeNewPosition() {
+
+                var w = window.innerWidth - 50;
+                var nw = Math.floor(Math.random() * w);
+                return nw;
+            }*/
+
+            /*function animateBowser() {
+                $('#bowser').animate({
+                    left: makeNewPosition()
+                }, 5000);
+            };*/
+
+        });
+    </script>
+</body>

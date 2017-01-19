@@ -1,0 +1,43 @@
+html {
+    height: 100%;
+    margin: 0;
+    /*overflow: hidden;*/
+    background-color: rgb(29, 31, 32);
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    /*overflow: hidden;*/
+    font-family: mapolice;
+    font-size: 1.6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    margin: 1px;
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: floralwhite;
+    box-shadow: 0px 0px 10px rgba(200, 200, 200, 0.3);
+    transition: all 0.4s cubic-bezier(0.39, 0.575, 0.565, 1);
+    text-align: center;
+    cursor: pointer;
+}
+
+@font-face {
+    font-family: 'mapolice';
+    src: url('../fonts/roundy_rainbows-webfont.woff2') format('woff2'), url('../fonts/roundy_rainbows-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: floralwhite;
+}
