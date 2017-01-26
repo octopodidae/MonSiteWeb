@@ -10,7 +10,6 @@
 <body>
 
     <div class="box">
-
         <a href="../pdf/Attestation_NFA008.pdf" target="_blank">
             <div id="box1">NFA008</br>Bases de données</div>
         </a>
@@ -46,6 +45,9 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
+        $("#box1, #box4").fadeOut(1).fadeIn(800).css("visibility", "visible");
+        $("#box2, #box5").fadeOut(1).delay(800).fadeIn(800).css("visibility", "visible");
+        $("#box3, #box6").fadeOut(1).delay(1600).fadeIn(800).css("visibility", "visible");
         $("#box1").mouseover(function () {
             $(this).css("background-color", "#1d1f20").empty().html("Voir l'attestation de réussite").css("color", "#ffc266").css("font-size", "0.7em").css("font-family", "sans-serif");
         });
